@@ -24,7 +24,7 @@ public class DefinedCompImpl implements DefinedComp {
 	@Column(name="comp_type")
 	private String compType;
 
-	/**
+	/*
 	 * constructors
 	 */
 	public DefinedCompImpl() {
@@ -39,7 +39,7 @@ public class DefinedCompImpl implements DefinedComp {
 		this.compType = compType;
 	}
 
-	/**
+	/*
 	 * getters/setters
 	 */
 	public Integer getId() {

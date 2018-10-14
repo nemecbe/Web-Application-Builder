@@ -20,39 +20,44 @@ public class DefinedCompDAO implements DAO<DefinedComp> {
 		sess = SessionUtil.getSession();
 	}
 
-	public DefinedComp getByName(String tId) {
-		List<Object> oList = sess.createCriteria(DefinedCompImpl.class).add(Restrictions.eq("compName", tId)).list();
+	public DefinedComp getByName(String dcId) {
+		List<Object> oList = sess.createCriteria(DefinedCompImpl.class).add(Restrictions.eq("compName", dcId)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;
 		}
-		DefinedComp u = (DefinedComp) oList.get(0);
-		return u;
+		DefinedComp dc = (DefinedComp) oList.get(0);
+		return dc;
 	}
 
-	public void create(DefinedComp t) {
+	public void create(DefinedComp dc) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void update(DefinedComp t) {
+	public void update(DefinedComp dc) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public void delete(DefinedComp t) {
+	public void delete(DefinedComp dc) {
 		// TODO Auto-generated method stub
 
 	}
 
-	public boolean contains(DefinedComp t) {
+	public boolean contains(DefinedComp dc) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
-	public DefinedComp getById(Integer tId) {
-		// TODO Auto-generated method stub
-		return null;
+	public DefinedComp getById(Integer dcId) {
+		List<Object> oList = sess.createCriteria(DefinedCompImpl.class).add(Restrictions.eq("id", dcId)).list();
+		if (oList.size() == 0) {
+			System.out.println("nothing returned from list");
+			return null;
+		}
+		DefinedComp dc = (DefinedComp) oList.get(0);
+		return dc;
 	}
 
 	public List<DefinedComp> getAll() {

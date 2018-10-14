@@ -42,7 +42,7 @@ public class UserImpl implements User {
 	@Column(table="users", name="experienced")
 	private boolean experienced;
 	
-	/**
+	/*
 	 * Constructors 	
 	 */
 	public UserImpl() {
@@ -59,9 +59,8 @@ public class UserImpl implements User {
 		this.pWord = pWord;
 	}
 	
-	/**
+	/*
 	 * Getters/Setters
-	 * @return
 	 */
 	public Integer getId() {
 		return id;
@@ -110,7 +109,7 @@ public class UserImpl implements User {
 		this.id = id;
 	}
 	
-	/**
+	/*
 	 * To string
 	 */
 	@Override
