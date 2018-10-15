@@ -74,5 +74,13 @@ public class PageImpl implements Page {
 	public void setActive(Boolean active) {
 		this.active = active;
 	}
+	
+	/*
+	 * to string
+	 */
+	@Override
+	public String toString() {
+		return "PageImpl [pId=" + pId + ", puId=" + puId + ", pName=" + pName + ", active=" + active + "]";
+	}
 }
 

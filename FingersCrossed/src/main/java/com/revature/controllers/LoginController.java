@@ -3,6 +3,7 @@ package com.revature.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -31,8 +32,8 @@ public class LoginController {
 		return u;
 	}
 	
-	@GetMapping(value="/page/:pageid", produces="appliction/json")
-	public Page getPage(@RequestBody Page page) {
+	@PostMapping(value="/user/jmart/page", produces="appliction/json")
+	public Page getPage(@RequestBody Page page, @PathVariable String uName) {
 		String pName = page.getpName();
 		Page p = pServ.getPageByName(pName);
 		return p;

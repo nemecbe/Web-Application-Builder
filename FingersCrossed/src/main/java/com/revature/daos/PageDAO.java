@@ -5,9 +5,8 @@ import java.util.List;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
-import com.revature.beans.DefinedCompImpl;
+import com.revature.beans.PageImpl;
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.DefinedComp;
 import com.revature.interfaces.Page;
 import com.revature.util.SessionUtil;
 
@@ -21,7 +20,7 @@ public class PageDAO implements DAO<Page> {
 	
 
 	public Page getById(Integer pId) {
-		List<Object> oList = sess.createCriteria(DefinedCompImpl.class).add(Restrictions.eq("pId", pId)).list();
+		List<Object> oList = sess.createCriteria(PageImpl.class).add(Restrictions.eq("pId", pId)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;
@@ -31,7 +30,7 @@ public class PageDAO implements DAO<Page> {
 	}
 
 	public Page getByName(String pId) {
-		List<Object> oList = sess.createCriteria(DefinedCompImpl.class).add(Restrictions.eq("pName", pId)).list();
+		List<Object> oList = sess.createCriteria(PageImpl.class).add(Restrictions.eq("pName", pId)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;

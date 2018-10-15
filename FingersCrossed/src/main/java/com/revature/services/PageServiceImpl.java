@@ -1,10 +1,12 @@
 package com.revature.services;
 
+import org.springframework.stereotype.Service;
+
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.DefinedComp;
 import com.revature.interfaces.Page;
 import com.revature.interfaces.PageService;
 
+@Service
 public class PageServiceImpl implements PageService {
 
 	private DAO<Page> pDao;
