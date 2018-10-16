@@ -17,6 +17,8 @@ public interface Page {
 	public Boolean getActive();
 
 	public void setActive(Boolean active);
+	
+	public String toString();
 }
 
 

@@ -64,4 +64,16 @@ public class PageDAO implements DAO<Page> {
 		return false;
 	}
 
+
+	@SuppressWarnings("unchecked")
+	public List<Page> getByColumn(String colName, Object o) {
+		// TODO Auto-generated method stub
+		List<Object> oList = sess.createCriteria(PageImpl.class).add(Restrictions.eq(colName, o)).list();
+		if (oList.size() == 0) {
+			System.out.println("nothing returned from list");
+			return null;
+		}
+		return (List<Page>)(List<?>)oList;
+	}
+
 }

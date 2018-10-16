@@ -14,18 +14,18 @@ export class UserComponent implements OnInit {
 
   constructor(private ls: LoginServiceService, private ps: PageService, private router: Router) { }
   user: User;
-  page: Page;
+  pages: Page[];
 
   ngOnInit() {
     this.user = this.ls.getCurrentUser();
   }
 
   getPages(): void {
-    this.page.puId = this.user.id;
-    this.ps.getPages(this.page).subscribe(data => {
-      this.page = data;
-      if (this.page) {
-        this.ps.setPage(this.page);
+    console.log(this.user);
+    this.ps.getPages(this.user).subscribe(data => {
+      this.pages = data;
+      if (this.pages) {
+        this.ps.setPages(this.pages);
       }
         this.router.navigateByUrl(this.router.url + '/page');
     });

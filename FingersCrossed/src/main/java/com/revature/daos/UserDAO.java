@@ -8,8 +8,10 @@ import javax.transaction.Transaction;
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
+import com.revature.beans.PageImpl;
 import com.revature.beans.UserImpl;
 import com.revature.interfaces.DAO;
+import com.revature.interfaces.Page;
 import com.revature.interfaces.User;
 import com.revature.util.SessionUtil;
 
@@ -19,20 +21,6 @@ private Session sess;
 	
 	public UserDAO() {
 		sess = SessionUtil.getSession();
-	}
-
-	public User getByName(String uId) {
-		// TODO Auto-generated method stub
-		List<Object> oList = sess.createCriteria(UserImpl.class).add(Restrictions.eq("uName", uId)).list();
-		if (oList.size() == 0) {
-			System.out.println("nothing returned from list");
-			return null;
-		}
-		User u = (User)oList.get(0);
-		return u;	/*
-		User u = sess.get(UserImpl.class, 1);
-		System.out.println(u.toString());
-		return u;*/
 	}
 
 	public void create(User u) {
@@ -60,8 +48,36 @@ private Session sess;
 		return sess.contains(u);
 	}
 
-	public User getById(Integer tId) {
+	@SuppressWarnings("unchecked")
+	public List<User> getByColumn(String colName, Object o) {
 		// TODO Auto-generated method stub
-		return null;
+		List<Object> oList = sess.createCriteria(UserImpl.class).add(Restrictions.eq(colName, o)).list();
+		if (oList.size() == 0) {
+			System.out.println("nothing returned from list");
+			return null;
+		}
+		return (List<User>)(List<?>)oList;
+	}
+
+	public User getById(Integer uId) {
+		// TODO Auto-generated method stub
+		List<Object> oList = sess.createCriteria(PageImpl.class).add(Restrictions.eq("id", uId)).list();
+		if (oList.size() == 0) {
+			System.out.println("nothing returned from list");
+			return null;
+		}
+		User u = (User) oList.get(0);
+		return u;
+	}
+
+	public User getByName(String uName) {
+		// TODO Auto-generated method stub
+		List<Object> oList = sess.createCriteria(UserImpl.class).add(Restrictions.eq("uName", uName)).list();
+		if (oList.size() == 0) {
+			System.out.println("nothing returned from list");
+			return null;
+		}
+		User u = (User) oList.get(0);
+		return u;
 	}
 }

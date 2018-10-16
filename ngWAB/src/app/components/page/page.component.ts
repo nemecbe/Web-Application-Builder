@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Page } from 'src/app/types/page';
+import { PageService } from 'src/app/services/page.service';
 
 @Component({
   selector: 'app-page',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PageComponent implements OnInit {
 
-  constructor() { }
+  pages: Page[];
+
+  constructor(private ps: PageService) { }
 
   ngOnInit() {
+    this.pages = this.ps.getCurrPages();
+    console.log(this.pages);
   }
 
 }

@@ -25,7 +25,8 @@ public class DefinedCompServiceImpl implements DefinedCompService {
 
 	public DefinedComp getCompById(Integer dcId) {
 		// TODO Auto-generated method stub
-		return null;
+		DefinedComp dc = dcDao.getById(dcId);
+		return dc;
 	}
 
 	public DefinedComp getCompByName(String dcName) {

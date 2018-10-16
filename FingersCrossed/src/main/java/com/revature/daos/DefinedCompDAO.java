@@ -65,4 +65,16 @@ public class DefinedCompDAO implements DAO<DefinedComp> {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
+	public List<DefinedComp> getByColumn(String colName, Object o) {
+		// TODO Auto-generated method stub
+		List<Object> oList = sess.createCriteria(DefinedCompImpl.class).add(Restrictions.eq(colName, o)).list();
+		if (oList.size() == 0) {
+			System.out.println("nothing returned from list");
+			return null;
+		}
+		DefinedComp dc = (DefinedComp) oList.get(0);
+		return (List<DefinedComp>)(List<?>)oList;
+	}
+
 }
