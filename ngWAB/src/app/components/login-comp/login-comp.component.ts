@@ -18,15 +18,15 @@ export class LoginCompComponent implements OnInit {
   pWord = '';
   loggedIn = false;
 
-  constructor(private us: LoginServiceService, private router: Router) { }
+  constructor(private ls: LoginServiceService, private router: Router) { }
 
   userLogin(): void {
     this.auser.uName = this.uName;
     this.auser.pWord = this.pWord;
-    this.us.getUser(this.auser).subscribe(data => {
+    this.ls.getUser(this.auser).subscribe(data => {
       this.user = data;
       if (this.user) {
-        this.us.setUser(this.user);
+        this.ls.setUser(this.user);
         this.router.navigateByUrl('/user/' + this.user.uName);
       } else {
         this.router.navigateByUrl('/login');

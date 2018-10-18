@@ -4,14 +4,14 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import com.revature.beans.DefinedCompImpl;
-import com.revature.beans.UserImpl;
 import com.revature.interfaces.DAO;
 import com.revature.interfaces.DefinedComp;
-import com.revature.interfaces.User;
 import com.revature.util.SessionUtil;
 
+@Repository
 public class DefinedCompDAO implements DAO<DefinedComp> {
 	
 	private Session sess;
@@ -51,7 +51,7 @@ public class DefinedCompDAO implements DAO<DefinedComp> {
 	}
 
 	public DefinedComp getById(Integer dcId) {
-		List<Object> oList = sess.createCriteria(DefinedCompImpl.class).add(Restrictions.eq("id", dcId)).list();
+		List<Object> oList = sess.createCriteria(DefinedCompImpl.class).add(Restrictions.eq("dc_id", dcId)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;
@@ -63,6 +63,18 @@ public class DefinedCompDAO implements DAO<DefinedComp> {
 	public List<DefinedComp> getAll() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<DefinedComp> getByColumn(String colName, Object o) {
+		// TODO Auto-generated method stub
+		List<Object> oList = sess.createCriteria(DefinedCompImpl.class).add(Restrictions.eq(colName, o)).list();
+		if (oList.size() == 0) {
+			System.out.println("nothing returned from list");
+			return null;
+		}
+		DefinedComp dc = (DefinedComp) oList.get(0);
+		return (List<DefinedComp>)(List<?>)oList;
 	}
 
 }

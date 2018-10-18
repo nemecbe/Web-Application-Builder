@@ -13,7 +13,7 @@
 			jdbc:postgresql://rev4pillars.cy8igsvx5lhu.us-east-2.rds.amazonaws.com:5432/rev4PillarsDB?
 		</property>
 		<property name="hibernate.connection.username">
-			
+				
 		</property>
 		<property name="hibernate.connection.password">
 			
@@ -22,6 +22,8 @@
 		<property name="hibernate.show_sql">true</property>
 		
 		<mapping class="com.revature.beans.UserImpl"/>
+		<mapping class="com.revature.beans.PageImpl"/>
+		<mapping class="com.revature.beans.DefinedCompImpl"/>
 				
 	</session-factory>
 </hibernate-configuration>

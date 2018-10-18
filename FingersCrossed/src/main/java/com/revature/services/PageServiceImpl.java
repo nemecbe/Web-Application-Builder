@@ -1,13 +1,22 @@
 package com.revature.services;
 
+import java.util.List;
+
+import org.springframework.stereotype.Service;
+
+import com.revature.daos.PageDAO;
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.DefinedComp;
 import com.revature.interfaces.Page;
 import com.revature.interfaces.PageService;
 
+@Service
 public class PageServiceImpl implements PageService {
 
 	private DAO<Page> pDao;
+	
+	public PageServiceImpl() {
+		pDao = new PageDAO();
+	}
 	
 	public Page getPageById(Integer dcId) {
 		// TODO Auto-generated method stub
@@ -25,4 +34,9 @@ public class PageServiceImpl implements PageService {
 		this.pDao = pDao;
 	}
 
+	public List<Page> getAllPagesForId(Integer puId) {
+		// TODO Auto-generated method stub
+		List<Page> pList = pDao.getByColumn("puId", puId);
+		return pList;
+	}
 }
