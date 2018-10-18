@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: zuul
+    
+#Local Routes
+zuul:
+  routes:
+    pet: 
+      url: http://localhost:9090
+    travel:
+      url: http://localhost:9080
+  strip-prefix: true    
+    
+server:
+  port: 10000

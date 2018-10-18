@@ -1,9 +1,10 @@
 package com.revature.services;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.beans.DefinedCompImpl;
 import com.revature.interfaces.DAO;
 import com.revature.interfaces.DefinedComp;
 import com.revature.interfaces.DefinedCompService;
@@ -11,7 +12,8 @@ import com.revature.interfaces.DefinedCompService;
 @Service
 public class DefinedCompServiceImpl implements DefinedCompService {
 
-	private DAO<DefinedComp> dcDao;// = new DefinedCompDAO();
+	@Autowired
+	private DAO<DefinedComp> dcDao;
 	
 	public void setDao(DAO<DefinedComp> dcDao) {
 		// TODO Auto-generated method stub
@@ -33,5 +35,9 @@ public class DefinedCompServiceImpl implements DefinedCompService {
 		// TODO Auto-generated method stub
 		DefinedComp dc = dcDao.getByName(dcName);
 		return dc;
+	}
+	
+	public List<DefinedComp> getAllCompForId(Integer dcId) {
+		return dcDao.getByColumn("Id", dcId);
 	}
 }

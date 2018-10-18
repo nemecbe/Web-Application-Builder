@@ -2,19 +2,17 @@ package com.revature.daos;
 
 import java.util.List;
 
-import javax.transaction.SystemException;
-import javax.transaction.Transaction;
-
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import com.revature.beans.PageImpl;
 import com.revature.beans.UserImpl;
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.Page;
 import com.revature.interfaces.User;
 import com.revature.util.SessionUtil;
 
+@Repository
 public class UserDAO implements DAO<User> {
 
 private Session sess;

@@ -14,18 +14,8 @@ import com.revature.interfaces.UserService;
 @Service
 public class UserServiceImpl implements UserService {	
 	
-	DAO<User> uDao = new UserDAO();
-	
 	@Autowired
-	private HttpSession sess;	
-
-	public HttpSession getSess() {
-		return sess;
-	}
-
-	public void setSess(HttpSession sess) {
-		this.sess = sess;
-	}
+	DAO<User> uDao;
 
 	public User login(String uName, String pWord) {
 		User u = null;

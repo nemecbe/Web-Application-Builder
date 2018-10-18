@@ -29,7 +29,6 @@ public class UserController {
 	public List<Page> getPage(@PathVariable String uName) {
 		User u = uServ.getByName(uName);
 		Integer puId = 0;
-		System.out.println(u);
 		if (u != null && uName.equals(u.getuName())) {
 			puId = u.getId();
 		}

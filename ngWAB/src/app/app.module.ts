@@ -10,6 +10,7 @@ import { LoginCompComponent } from './components/login-comp/login-comp.component
 import { UserComponent } from './components/user/user.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { PageComponent } from './components/page/page.component';
+import { CompComponent } from './components/comp/comp.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { PageComponent } from './components/page/page.component';
     LoginCompComponent,
     UserComponent,
     UserRegisterComponent,
-    PageComponent
+    PageComponent,
+    CompComponent
   ],
   imports: [
     FormsModule,
