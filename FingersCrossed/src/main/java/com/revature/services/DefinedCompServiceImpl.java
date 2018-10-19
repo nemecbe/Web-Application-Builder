@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.revature.beans.DefinedComp;
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.DefinedComp;
 import com.revature.interfaces.DefinedCompService;
 
 @Service
@@ -20,11 +20,6 @@ public class DefinedCompServiceImpl implements DefinedCompService {
 		this.dcDao = dcDao;
 	}
 
-	public DefinedComp getComp() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
 	public DefinedComp getCompById(Integer dcId) {
 		// TODO Auto-generated method stub
 		DefinedComp dc = dcDao.getById(dcId);
@@ -36,8 +31,9 @@ public class DefinedCompServiceImpl implements DefinedCompService {
 		DefinedComp dc = dcDao.getByName(dcName);
 		return dc;
 	}
-	
-	public List<DefinedComp> getAllCompForId(Integer dcId) {
-		return dcDao.getByColumn("Id", dcId);
+
+	public List<DefinedComp> getAllComps() {
+		// TODO Auto-generated method stub
+		return dcDao.getAll();
 	}
 }

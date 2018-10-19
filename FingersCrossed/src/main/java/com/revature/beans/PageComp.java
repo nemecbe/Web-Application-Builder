@@ -5,19 +5,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="page_comp")
-public class PageCompImpl {
+public class PageComp {
 	
 	@Id
 	@Column(name="pc_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer pcId;
 	
+	@ManyToOne
 	@Column(name="comp_id")
-	private Integer compId;
+	private DefinedComp comp;
 	
 	@Column(name="page_id")
 	private Integer pageId;
@@ -38,16 +40,16 @@ public class PageCompImpl {
 	
 	
 	
-	public PageCompImpl() {
+	public PageComp() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PageCompImpl(Integer pcId, Integer compId, Integer pageId, Integer parentId, String compDetails,
+	public PageComp(Integer pcId, DefinedComp compId, Integer pageId, Integer parentId, String compDetails,
 			Integer styleId) {
 		super();
 		this.pcId = pcId;
-		this.compId = compId;
+		this.comp = compId;
 		this.pageId = pageId;
 		this.parentId = parentId;
 		this.compDetails = compDetails;
@@ -62,12 +64,12 @@ public class PageCompImpl {
 		this.pcId = pcId;
 	}
 
-	public Integer getCompId() {
-		return compId;
+	public DefinedComp getComp() {
+		return comp;
 	}
 
-	public void setCompId(Integer compId) {
-		this.compId = compId;
+	public void setCompId(DefinedComp compId) {
+		this.comp = compId;
 	}
 
 	public Integer getPageId() {
@@ -104,7 +106,7 @@ public class PageCompImpl {
 
 	@Override
 	public String toString() {
-		return "PageComp [pcId=" + pcId + ", compId=" + compId + ", pageId=" + pageId + ", parentId=" + parentId
+		return "PageComp [pcId=" + pcId + ", compId=" + comp + ", pageId=" + pageId + ", parentId=" + parentId
 				+ ", compDetails=" + compDetails + ", styleId=" + styleId + "]";
 	}
 

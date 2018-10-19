@@ -9,10 +9,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import com.revature.beans.PageImpl;
+import com.revature.beans.Page;
 import com.revature.daos.PageDAO;
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.Page;
 import com.revature.interfaces.PageService;
 import com.revature.services.PageServiceImpl;
 
@@ -42,7 +41,7 @@ public class PageServiceTest {
 
 	@Test
 	public void testGetByPageName() {
-		Page p1 = new PageImpl(1, 1, "p1Name", true);
+		Page p1 = new Page(1, 1, "p1Name", true);
 		Mockito.when(pDao.getByName(p1.getpName())).thenReturn(p1);
 		Page p2 = ps.getPageByName(p1.getpName());
 		assertEquals("Testing getPageByName", p1, p2);

@@ -23,4 +23,6 @@ public interface DAO<T> {
 	public void delete(T t);
 	
 	public boolean contains(T t);
+	
+	public List<T> getAll();
 }

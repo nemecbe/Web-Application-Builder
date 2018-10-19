@@ -4,12 +4,13 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
-import com.revature.beans.PageImpl;
+import com.revature.beans.Page;
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.Page;
 import com.revature.util.SessionUtil;
 
+@Repository
 public class PageDAO implements DAO<Page> {
 	
 	private Session sess;
@@ -20,7 +21,7 @@ public class PageDAO implements DAO<Page> {
 	
 
 	public Page getById(Integer pId) {
-		List<Object> oList = sess.createCriteria(PageImpl.class).add(Restrictions.eq("pId", pId)).list();
+		List<Object> oList = sess.createCriteria(Page.class).add(Restrictions.eq("pId", pId)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;
@@ -30,7 +31,7 @@ public class PageDAO implements DAO<Page> {
 	}
 
 	public Page getByName(String pId) {
-		List<Object> oList = sess.createCriteria(PageImpl.class).add(Restrictions.eq("pName", pId)).list();
+		List<Object> oList = sess.createCriteria(Page.class).add(Restrictions.eq("pName", pId)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;
@@ -41,22 +42,22 @@ public class PageDAO implements DAO<Page> {
 
 	public void create(Page p) {
 		// TODO Auto-generated method stub
-		
+		sess.save(p);
 	}
 
 	public List<Page> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return sess.createCriteria(Page.class).list();
 	}
 
 	public void update(Page p) {
 		// TODO Auto-generated method stub
-		
+		sess.saveOrUpdate(p);
 	}
 
 	public void delete(Page p) {
 		// TODO Auto-generated method stub
-		
+		sess.remove(p);
 	}
 
 	public boolean contains(Page p) {
@@ -68,7 +69,7 @@ public class PageDAO implements DAO<Page> {
 	@SuppressWarnings("unchecked")
 	public List<Page> getByColumn(String colName, Object o) {
 		// TODO Auto-generated method stub
-		List<Object> oList = sess.createCriteria(PageImpl.class).add(Restrictions.eq(colName, o)).list();
+		List<Object> oList = sess.createCriteria(Page.class).add(Restrictions.eq(colName, o)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;

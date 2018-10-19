@@ -2,6 +2,8 @@ package com.revature.interfaces;
 
 import java.util.List;
 
+import com.revature.beans.DefinedComp;
+
 public interface DefinedCompService {
 	
 	public DefinedComp getCompById(Integer dcId);
@@ -10,5 +12,5 @@ public interface DefinedCompService {
 	
 	public void setDao(DAO<DefinedComp> t);
 	
-	public List<DefinedComp> getAllCompForId(Integer puId);
+	public List<DefinedComp> getAllComps();
 }

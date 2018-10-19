@@ -5,11 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.revature.interfaces.Page;
-
 @Entity
 @Table(name="page")
-public class PageImpl implements Page {
+public class Page {
 
 	@Id
 	@Column(name="p_id")
@@ -27,12 +25,12 @@ public class PageImpl implements Page {
 	/*
 	 * constructors
 	 */
-	public PageImpl() {
+	public Page() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public PageImpl(Integer pId, Integer puId, String pName, Boolean active) {
+	public Page(Integer pId, Integer puId, String pName, Boolean active) {
 		super();
 		this.pId = pId;
 		this.puId = puId;

@@ -7,11 +7,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-import com.revature.interfaces.DefinedComp;
-
 @Entity
 @Table(name="defined_comp")
-public class DefinedCompImpl implements DefinedComp {
+public class DefinedComp {
 
 	@Id
 	@Column(name="dc_id")
@@ -27,12 +25,12 @@ public class DefinedCompImpl implements DefinedComp {
 	/*
 	 * constructors
 	 */
-	public DefinedCompImpl() {
+	public DefinedComp() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public DefinedCompImpl(Integer id, String compName, String compType) {
+	public DefinedComp(Integer id, String compName, String compType) {
 		super();
 		this.id = id;
 		this.compName = compName;
