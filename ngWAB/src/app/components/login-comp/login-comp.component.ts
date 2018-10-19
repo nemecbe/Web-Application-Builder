@@ -4,10 +4,13 @@ import { User } from 'src/app/types/user';
 import { Router } from '@angular/router';
 import { stringify } from '@angular/compiler/src/util';
 import { UserComponent } from '../user/user.component';
-
+import { element } from 'protractor';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
+import { DraggableModule } from './Directives/draggable.module';
 @Component({
   selector: 'app-login-comp',
   templateUrl: './login-comp.component.html',
+  // template:,
   styleUrls: ['./login-comp.component.css']
 })
 export class LoginCompComponent implements OnInit {
@@ -18,7 +21,7 @@ export class LoginCompComponent implements OnInit {
   pWord = '';
   loggedIn = false;
 
-  constructor(private ls: LoginServiceService, private router: Router) { }
+  constructor(private ls: LoginServiceService, private router: Router, private sanitizer: DomSanitizer) {}
 
   userLogin(): void {
     this.auser.uName = this.uName;
@@ -37,7 +40,5 @@ export class LoginCompComponent implements OnInit {
     );
   }
 
-  ngOnInit() {
-  }
-
+  ngOnInit() { }
 }

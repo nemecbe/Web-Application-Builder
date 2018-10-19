@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.revature.interfaces.DefinedCompService;
+import com.revature.interfaces.PageComp;
 import com.revature.interfaces.PageService;
 
 @RestController
@@ -22,13 +23,13 @@ public class PageController {
 	private PageService ps;
 	
 	@GetMapping(value="/user/{uname}/page/{pId}", produces="application/json")
-	public List<> getComp(@PathVariable Integer pId, @PathVariable String uname) {a
+	public List<PageComp> getComp(@PathVariable Integer pId, @PathVariable String uname) {
 		/*Integer puId = 0;
 		if (page != null) {
 			puId = page.getPuId();
 		}*/
 		
-		List<> pcList = dcs.getAllCompForId(pId);
+		List<PageComp> pcList = /*pcs.getAllCompForId(pId);*/null;
 		return pcList;
 	}
 }

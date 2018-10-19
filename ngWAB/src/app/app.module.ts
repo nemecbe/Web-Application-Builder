@@ -4,13 +4,14 @@ import { LoginServiceService } from './services/login-service.service';
 import { HttpClientModule } from '@angular/common/http';
 import { MainRoutingModule } from './modules/main-routing/main-routing.module';
 import { FormsModule } from '@angular/forms';
- 
+
 import { AppComponent } from './app.component';
 import { LoginCompComponent } from './components/login-comp/login-comp.component';
 import { UserComponent } from './components/user/user.component';
 import { UserRegisterComponent } from './components/user-register/user-register.component';
 import { PageComponent } from './components/page/page.component';
 import { CompComponent } from './components/comp/comp.component';
+import { DraggableModule } from './Directives/draggable.module';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CompComponent } from './components/comp/comp.component';
     FormsModule,
     BrowserModule,
     HttpClientModule,
-    MainRoutingModule
+    MainRoutingModule,
+    DraggableModule
   ],
   providers: [
     LoginServiceService

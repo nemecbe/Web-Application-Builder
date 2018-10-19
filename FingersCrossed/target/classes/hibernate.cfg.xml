@@ -13,7 +13,7 @@
 			jdbc:postgresql://rev4pillars.cy8igsvx5lhu.us-east-2.rds.amazonaws.com:5432/rev4PillarsDB?
 		</property>
 		<property name="hibernate.connection.username">
-			marti656	
+			marti656
 		</property>
 		<property name="hibernate.connection.password">
 			WAB5thPillar
