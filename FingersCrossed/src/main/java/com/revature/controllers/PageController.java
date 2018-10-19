@@ -18,6 +18,7 @@ import com.revature.beans.PublishedPage;
 import com.revature.interfaces.PageCompService;
 import com.revature.interfaces.PageService;
 import com.revature.interfaces.PublishedPageService;
+import com.revature.interfaces.UserService;
 
 @RestController
 @CrossOrigin(origins="http:localhost:4200")
@@ -32,6 +33,9 @@ public class PageController {
 	@Autowired
 	private PublishedPageService pps;
 	
+	@Autowired
+	private UserService uServ;
+	
 	@GetMapping(value="/user/{uname}/page/{pId}", produces="application/json")
 	public List<PageComp> getComp(@PathVariable(name="pId") Integer pId, 
 			@PathVariable(name="uname") String uname) {
@@ -39,43 +43,57 @@ public class PageController {
 		if (page != null) {
 			puId = page.getPuId();
 		}*/
-		
-		List<PageComp> pcList = pcs.getAllCompForId(pId);
-		return pcList;
+		if(uServ.getCurrentUser() != null && uServ.getCurrentUser().getuName().equals(uname)) {
+			List<PageComp> pcList = pcs.getAllCompForId(pId);
+			return pcList;
+		}
+		return null;
 	}
 	
 	@PostMapping(value="/user/{uname}/page/{pId}/component")
 	public void setComps(@PathVariable(name="uname") String uname,
 			@PathVariable(name="pId") Integer pId, @RequestBody List<PageComp> comps) {
-		for(PageComp comp: comps)
-			pcs.updatePageComp(comp);
+		if(uServ.getCurrentUser() != null && uServ.getCurrentUser().getuName().equals(uname)) {
+			for(PageComp comp: comps) {
+				comp.setPageId(pId);
+				pcs.updatePageComp(comp);
+			}
+		}
 	}
 	
 	@GetMapping(value="/page")
 	public List<PublishedPage> getPublishedPages(){
-		return pps.getAllPages();
+		if(uServ.getCurrentUser() != null)
+			return pps.getAllPages();
+		return null;
 	}
 	
 	@GetMapping(value="/page/{pId}")
 	public PublishedPage getPublishedPage(@PathVariable(name="pId") Integer pId) {
-		return pps.getPage(pId);
+		if(uServ.getCurrentUser() != null)
+			return pps.getPage(pId);
+		return null;
 	}
 	
 	@PostMapping(value="/page/{name}")
 	public void publishPage(@PathVariable(name="name") String name, @RequestBody Page page) {
-		pps.publishPage(page, name);
+		if(uServ.getCurrentUser() != null)
+			pps.publishPage(page, name);
 	}
 	
 	@PutMapping(value="/page/{pId}")
 	public void updatePage(@PathVariable(name="pId") Integer pId,
 			@RequestBody PublishedPage page) {
-		page.setPublishedId(pId);
-		pps.updatePage(page);
+		if(uServ.getCurrentUser() != null) {
+			page.setPublishedId(pId);
+			pps.updatePage(page);
+		}
 	}
 	
 	@DeleteMapping(value="/page/{pId}")
 	public void takeDownPage(@PathVariable(name="pId") Integer pId,
 			@RequestBody PublishedPage page) {
-		pps.takeDownPage(page);
+		if(uServ.getCurrentUser() != null)
+			pps.takeDownPage(page);
 	}
 }

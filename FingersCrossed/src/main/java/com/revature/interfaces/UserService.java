@@ -21,4 +21,12 @@ public interface UserService {
 	public HttpSession getSess();
 	
 	public void setSess(HttpSession sess); */
+	
+	public User getCurrentUser();
+
+	public void setCurrentUser(User currentUser);
+	
+	public boolean isInactive();
+
+	public void setInactive(boolean inactive);
 }

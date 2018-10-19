@@ -10,21 +10,26 @@ import javax.servlet.ServletContextListener;
 import javax.servlet.annotation.WebListener;
 
 import com.revature.job.MonthlyJobs;
+import com.revature.job.UserTimeoutJob;
 
 @WebListener
 public class JobMangager implements ServletContextListener {
-
-	private ScheduledExecutorService scheduler;
 	
 	private static final int MIN_TO_DAY = 1440;
 	
 	private static final int MIN_TO_HOUR = 60;
+	
+	private static final int USER_TIMEOUT_CHECK = 15;
+
+	private ScheduledExecutorService scheduler;
 	
 	public void contextInitialized(ServletContextEvent sce) {
 		scheduler = Executors.newSingleThreadScheduledExecutor();
 		// Checks all of the monthly jobs to see if they need to be ran
 		scheduler.scheduleAtFixedRate(new MonthlyJobs(), 
 				getMinsToMidnight(), MIN_TO_DAY, TimeUnit.MINUTES);
+		scheduler.scheduleAtFixedRate(new UserTimeoutJob(),
+				0, USER_TIMEOUT_CHECK, TimeUnit.MINUTES);
 	}
 
 	public void contextDestroyed(ServletContextEvent sce) {

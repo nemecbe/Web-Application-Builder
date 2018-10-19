@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -46,11 +47,15 @@ public class UserController {
 	@PostMapping(value="/user/{uname}/page")
 	public void createPage(@PathVariable(name="uname") String uname,
 			@RequestBody Page page) {
+		User u = uServ.getCurrentUser();
+		if(u != null && u.getuName().equals(uname))
+			page.setPuId(u.getId());
 		pServ.createPage(page);
 	}
 	
 	@PutMapping(value="/user/{uname}")
 	public void updateInfo(@RequestBody User user) {
-		uServ.updateUser(user);
+		if(uServ.getCurrentUser() != null && uServ.getCurrentUser().equals(user))
+			uServ.updateUser(user);
 	}
 }
