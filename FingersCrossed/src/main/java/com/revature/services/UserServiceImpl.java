@@ -1,14 +1,13 @@
 package com.revature.services;
 
-import javax.servlet.http.HttpSession;
+import java.util.List;
 
 import org.hibernate.HibernateException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.revature.daos.UserDAO;
+import com.revature.beans.User;
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.User;
 import com.revature.interfaces.UserService;
 
 @Service
@@ -46,6 +45,16 @@ public class UserServiceImpl implements UserService {
 
 	public User getById(User user) {
 		// TODO Auto-generated method stub
-		return null;
+		return uDao.getById(user.getId());
+	}
+
+	public void updateUser(User user) {
+		// TODO Auto-generated method stub
+		uDao.update(user);
+	}
+
+	public List<User> getAllUsers() {
+		// TODO Auto-generated method stub
+		return uDao.getAll();
 	}
 }

@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.revature.beans.Page;
 import com.revature.daos.PageDAO;
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.Page;
 import com.revature.interfaces.PageService;
 
 @Service
@@ -38,5 +38,10 @@ public class PageServiceImpl implements PageService {
 		// TODO Auto-generated method stub
 		List<Page> pList = pDao.getByColumn("puId", puId);
 		return pList;
+	}
+
+	public void createPage(Page p) {
+		// TODO Auto-generated method stub
+		pDao.create(p);
 	}
 }

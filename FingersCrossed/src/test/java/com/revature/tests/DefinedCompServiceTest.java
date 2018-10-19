@@ -1,7 +1,6 @@
 package com.revature.tests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
 
 import org.junit.After;
 import org.junit.AfterClass;
@@ -10,10 +9,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.mockito.Mockito;
 
-import com.revature.beans.DefinedCompImpl;
+import com.revature.beans.DefinedComp;
 import com.revature.daos.DefinedCompDAO;
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.DefinedComp;
 import com.revature.interfaces.DefinedCompService;
 import com.revature.services.DefinedCompServiceImpl;
 
@@ -43,7 +41,7 @@ public class DefinedCompServiceTest {
 
 	@Test
 	public void testGetCompByName() {
-		DefinedComp dc1 = new DefinedCompImpl(1, "bigButton", "button");
+		DefinedComp dc1 = new DefinedComp(1, "bigButton", "button");
 		Mockito.when(dcDAO.getByName(dc1.getCompName())).thenReturn(dc1);
 		DefinedComp dc2 = dcs.getCompByName(dc1.getCompName());
 		assertEquals("Testing getCompByName", dc1, dc2);

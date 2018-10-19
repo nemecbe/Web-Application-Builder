@@ -6,10 +6,9 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
-import com.revature.beans.PageImpl;
-import com.revature.beans.UserImpl;
+import com.revature.beans.Page;
+import com.revature.beans.User;
 import com.revature.interfaces.DAO;
-import com.revature.interfaces.User;
 import com.revature.util.SessionUtil;
 
 @Repository
@@ -29,17 +28,17 @@ private Session sess;
 
 	public List<User> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return sess.createCriteria(User.class).list();
 	}
 
 	public void update(User u) {
 		// TODO Auto-generated method stub
-		
+		sess.saveOrUpdate(u);
 	}
 
 	public void delete(User u) {
 		// TODO Auto-generated method stub
-		
+		sess.remove(u);
 	}	
 	
 	public boolean contains(User u) {
@@ -49,7 +48,7 @@ private Session sess;
 	@SuppressWarnings("unchecked")
 	public List<User> getByColumn(String colName, Object o) {
 		// TODO Auto-generated method stub
-		List<Object> oList = sess.createCriteria(UserImpl.class).add(Restrictions.eq(colName, o)).list();
+		List<Object> oList = sess.createCriteria(User.class).add(Restrictions.eq(colName, o)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;
@@ -59,7 +58,7 @@ private Session sess;
 
 	public User getById(Integer uId) {
 		// TODO Auto-generated method stub
-		List<Object> oList = sess.createCriteria(PageImpl.class).add(Restrictions.eq("id", uId)).list();
+		List<Object> oList = sess.createCriteria(Page.class).add(Restrictions.eq("id", uId)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;
@@ -70,7 +69,7 @@ private Session sess;
 
 	public User getByName(String uName) {
 		// TODO Auto-generated method stub
-		List<Object> oList = sess.createCriteria(UserImpl.class).add(Restrictions.eq("uName", uName)).list();
+		List<Object> oList = sess.createCriteria(User.class).add(Restrictions.eq("uName", uName)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;
