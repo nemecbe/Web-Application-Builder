@@ -22,6 +22,7 @@ li a {
     text-align: center;
     padding: 50px 16px;
     text-decoration: none;
+    cursor: pointer;
 }
 
 /* Change the link color to #111 (black) on hover */
@@ -35,4 +36,9 @@ li a:hover {
 
 li h1 {
     color: #00FF7F;
+}
+
+.active {
+    background-color: #4CAF50;
+    color: white;
 }
