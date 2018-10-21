@@ -17,6 +17,7 @@ import { CompsComponent } from './components/comps/comps.component';
 import { IndividualPageComponent } from './components/individual-page/individual-page.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DefCompNavbarComponent } from './components/def-comp-navbar/def-comp-navbar.component';
+import { ExPage1Component } from './components/ex-page1/ex-page1.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { DefCompNavbarComponent } from './components/def-comp-navbar/def-comp-na
     CompsComponent,
     IndividualPageComponent,
     NavbarComponent,
-    DefCompNavbarComponent
+    DefCompNavbarComponent,
+    ExPage1Component
   ],
   imports: [
     FormsModule,

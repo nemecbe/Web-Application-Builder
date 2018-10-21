@@ -1,0 +1,17 @@
+h1 {
+    text-align: center;
+}
+
+div {
+    text-align: left;
+}
+
+ul li {
+    align-items: center;
+}
+
+ul li textarea {
+    background-color: #2b362c;
+    color: #00FF7F;
+    border-color: black;
+}
