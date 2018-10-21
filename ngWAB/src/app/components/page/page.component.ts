@@ -4,6 +4,8 @@ import { PageService } from 'src/app/services/page.service';
 import { CompService } from 'src/app/services/comp.service';
 import { Comp } from 'src/app/types/comp';
 import { Router } from '@angular/router';
+import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
+import { PageComp } from '../../types/pageComps';
 
 @Component({
   selector: 'app-page',
@@ -13,12 +15,17 @@ import { Router } from '@angular/router';
 export class PageComponent implements OnInit {
 
   pages: Page[];
-  comps: Comp[];
+  comps: PageComp[];
   currPage: Page;
+  pageHtml: string;
+  sh: SafeHtml;
 
   constructor(private ps: PageService,
               private cs: CompService,
-              private router: Router) { }
+              private router: Router,
+              private sanitizer: DomSanitizer) {
+    this.pageHtml = '';
+  }
 
   ngOnInit() {
     this.pages = this.ps.getCurrPages();
@@ -31,10 +38,14 @@ export class PageComponent implements OnInit {
     this.cs.getComps(page).subscribe(data => {
       this.comps = data;
       if (this.comps) {
+        // console.log(this.comps);
         this.cs.setComps(this.comps);
       }
       this.router.navigateByUrl(this.router.url + '/' + page.pId);
     });
+    // this.sh = this.sanitizer.bypassSecurityTrustHtml(this.pageHtml);
+
+    // this.pages.
   }
 
 }

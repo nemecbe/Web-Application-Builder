@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { Comp } from 'src/app/types/comp';
+import { PageComp } from '../../types/pageComps';
 
 @Component({
   selector: 'app-comp',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CompComponent implements OnInit {
 
+  comps: string[];
+  @Input() pageComp: PageComp;
+
   constructor() { }
 
   ngOnInit() {
+    // this.comp = 'button';
   }
 
 }

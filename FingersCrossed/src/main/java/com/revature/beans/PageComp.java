@@ -5,6 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -18,8 +19,8 @@ public class PageComp {
 	private Integer pcId;
 	
 	@ManyToOne
-	@Column(name="comp_id")
-	private DefinedComp comp;
+	@JoinColumn(name="comp_id")
+	private DefinedComp compId;
 	
 	@Column(name="page_id")
 	private Integer pageId;
@@ -32,6 +33,12 @@ public class PageComp {
 	
 	@Column(name="style_id")
 	private Integer styleId;
+	
+	@Column(name="x_cord")
+	private Integer xPos;
+	
+	@Column(name="y_cord")
+	private Integer yPos;
 
 	
 	/*@ManyToOne
@@ -46,14 +53,16 @@ public class PageComp {
 	}
 
 	public PageComp(Integer pcId, DefinedComp compId, Integer pageId, Integer parentId, String compDetails,
-			Integer styleId) {
+			Integer styleId, Integer xPos, Integer yPos) {
 		super();
 		this.pcId = pcId;
-		this.comp = compId;
+		this.compId = compId;
 		this.pageId = pageId;
 		this.parentId = parentId;
 		this.compDetails = compDetails;
 		this.styleId = styleId;
+		this.xPos = xPos;
+		this.yPos = yPos;
 	}
 
 	public Integer getPcId() {
@@ -64,12 +73,12 @@ public class PageComp {
 		this.pcId = pcId;
 	}
 
-	public DefinedComp getComp() {
-		return comp;
+	public DefinedComp getCompId() {
+		return compId;
 	}
 
 	public void setCompId(DefinedComp compId) {
-		this.comp = compId;
+		this.compId = compId;
 	}
 
 	public Integer getPageId() {
@@ -104,10 +113,26 @@ public class PageComp {
 		this.styleId = styleId;
 	}
 
+	public Integer getxPos() {
+		return xPos;
+	}
+
+	public void setxPos(Integer xPos) {
+		this.xPos = xPos;
+	}
+
+	public Integer getyPos() {
+		return yPos;
+	}
+
+	public void setyPos(Integer yPos) {
+		this.yPos = yPos;
+	}
+
 	@Override
 	public String toString() {
-		return "PageComp [pcId=" + pcId + ", compId=" + comp + ", pageId=" + pageId + ", parentId=" + parentId
-				+ ", compDetails=" + compDetails + ", styleId=" + styleId + "]";
+		return "PageComp [pcId=" + pcId + ", compId=" + compId + ", pageId=" + pageId + ", parentId=" + parentId
+				+ ", compDetails=" + compDetails + ", styleId=" + styleId + ", xPos=" + xPos + ", yPos=" + yPos + "]";
 	}
 
 }

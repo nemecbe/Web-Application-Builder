@@ -12,6 +12,11 @@ import { UserRegisterComponent } from './components/user-register/user-register.
 import { PageComponent } from './components/page/page.component';
 import { CompComponent } from './components/comp/comp.component';
 import { DraggableModule } from './Directives/draggable.module';
+import { ButtonComponent } from './components/button/button.component';
+import { CompsComponent } from './components/comps/comps.component';
+import { IndividualPageComponent } from './components/individual-page/individual-page.component';
+import { NavbarComponent } from './components/navbar/navbar.component';
+import { DefCompNavbarComponent } from './components/def-comp-navbar/def-comp-navbar.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +25,12 @@ import { DraggableModule } from './Directives/draggable.module';
     UserComponent,
     UserRegisterComponent,
     PageComponent,
-    CompComponent
+    CompComponent,
+    ButtonComponent,
+    CompsComponent,
+    IndividualPageComponent,
+    NavbarComponent,
+    DefCompNavbarComponent
   ],
   imports: [
     FormsModule,

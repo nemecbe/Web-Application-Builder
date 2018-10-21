@@ -20,7 +20,7 @@ import com.revature.interfaces.PublishedPageService;
 import com.revature.interfaces.UserService;
 
 @RestController
-@CrossOrigin(origins="http:localhost:4200")
+@CrossOrigin(origins="http://localhost:4200")
 public class PageController {
 
 	@Autowired
@@ -44,6 +44,7 @@ public class PageController {
 		}*/
 		if(uServ.getCurrentUser() != null && uServ.getCurrentUser().getuName().equals(uname)) {
 			List<PageComp> pcList = pcs.getAllCompForId(pId);
+			System.out.println(pcList);
 			return pcList;
 		}
 		return null;

@@ -12,7 +12,7 @@ import com.revature.interfaces.DAO;
 import com.revature.interfaces.UserService;
 
 @Service
-@Scope(value="globalSession")
+//@Scope(value="globalSession")
 public class UserServiceImpl implements UserService {	
 	
 	@Autowired

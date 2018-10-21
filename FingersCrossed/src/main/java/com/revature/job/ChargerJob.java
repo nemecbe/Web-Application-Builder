@@ -19,11 +19,11 @@ public class ChargerJob implements Runnable {
 	public void run() {
 		// TODO Auto-generated method stub
 		for (User user : uServ.getAllUsers()) {
-			chargeUser(user);
-			uServ.updateUser(user);
+			//chargeUser(user);
+			//uServ.updateUser(user);
 		}
 	}
-
+/*
 	private void chargeUser(User user) {
 		user.setTotalCharge(user.getTotalCharge()
 				+ toCurrency(calculateCharge(
@@ -31,7 +31,7 @@ public class ChargerJob implements Runnable {
 						)
 				);
 	}
-
+*/
 	private double calculateCharge(int pages) {
 		return pages * RATE;
 	}

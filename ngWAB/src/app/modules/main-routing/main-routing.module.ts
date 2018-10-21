@@ -5,6 +5,7 @@ import { LoginCompComponent } from 'src/app/components/login-comp/login-comp.com
 import { UserRegisterComponent } from 'src/app/components/user-register/user-register.component';
 import { PageComponent } from 'src/app/components/page/page.component';
 import { CompComponent } from 'src/app/components/comp/comp.component';
+import { IndividualPageComponent } from 'src/app/components/individual-page/individual-page.component';
 
 const routes: Routes = [
   { path: 'user/:uname', component: UserComponent },
@@ -12,7 +13,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'register', component: UserRegisterComponent },
   { path: 'user/:uname/page', component: PageComponent},
-  { path: 'user/:uname/page/:pId', component: CompComponent }
+  { path: 'user/:uname/page/:pId', component: IndividualPageComponent }
 ];
 
 @NgModule({

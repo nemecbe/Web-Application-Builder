@@ -21,9 +21,11 @@
 		
 		<property name="hibernate.show_sql">true</property>
 		
-		<mapping class="com.revature.beans.UserImpl"/>
-		<mapping class="com.revature.beans.PageImpl"/>
-		<mapping class="com.revature.beans.DefinedCompImpl"/>
+		<mapping class="com.revature.beans.User"/>
+		<mapping class="com.revature.beans.Page"/>
+		<mapping class="com.revature.beans.DefinedComp"/>
+		<mapping class="com.revature.beans.PublishedPage"></mapping>
+		<mapping class="com.revature.beans.PageComp"/>
 				
 	</session-factory>
 </hibernate-configuration>

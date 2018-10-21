@@ -6,7 +6,7 @@ import { stringify } from '@angular/compiler/src/util';
 import { UserComponent } from '../user/user.component';
 import { element } from 'protractor';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
-import { DraggableModule } from './Directives/draggable.module';
+
 @Component({
   selector: 'app-login-comp',
   templateUrl: './login-comp.component.html',
@@ -17,11 +17,16 @@ export class LoginCompComponent implements OnInit {
 
   user: User;
   auser: User  = {} as User;
+  text: string;
   uName = '';
   pWord = '';
   loggedIn = false;
+  // element: string;
+  // sh: SafeHtml;
 
-  constructor(private ls: LoginServiceService, private router: Router, private sanitizer: DomSanitizer) {}
+  constructor(private ls: LoginServiceService, private router: Router, private sanitizer: DomSanitizer) {
+    // this.element = '<button (click)="addElement()">Add Element</button>';
+  }
 
   userLogin(): void {
     this.auser.uName = this.uName;
@@ -41,4 +46,20 @@ export class LoginCompComponent implements OnInit {
   }
 
   ngOnInit() { }
+
+  // addElement() {
+  //   this.sh = this.sanitizer.bypassSecurityTrustHtml(this.element);
+  //   this.element = this.element.concat('<div><h1>success</h1></div>');
+  //   this.sh = this.sanitizer.bypassSecurityTrustHtml(this.element);
+  // }
+  // addLabel() {
+  //   this.element = this.element.concat('<h1>success</h1>');
+  //   this.sh = this.sanitizer.bypassSecurityTrustHtml(this.element);
+  // }
+
+  append() {
+    // this.element = '<h1>change worked</h1>';
+    // this.sh = this.sanitizer.bypassSecurityTrustHtml(this.element);
+    this.text = 'something';
+  }
 }

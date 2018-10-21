@@ -11,6 +11,11 @@ import javax.persistence.Table;
 @Table(name="defined_comp")
 public class DefinedComp {
 
+	@Override
+	public String toString() {
+		return "DefinedComp [id=" + id + ", compName=" + compName + ", compType=" + compType + "]";
+	}
+
 	@Id
 	@Column(name="dc_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)

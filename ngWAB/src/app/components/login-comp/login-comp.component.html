@@ -5,3 +5,10 @@
   <p id="ppid">Password:</p>            
   <button type="button" class="btn btn-secondary" (click)="userLogin()">Login</button>
 </div>
+<button (click)="addElement()">Add Element</button>
+
+<button (click)="append()">Add Element</button>
+
+<div [innerHtml]="sh"  appDraggable>
+<div [innerHtml]="sh" *appDraggableHelper></div>
+</div>

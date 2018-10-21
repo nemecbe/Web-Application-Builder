@@ -4,12 +4,14 @@ import java.util.List;
 
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Repository;
 
 import com.revature.beans.Page;
 import com.revature.beans.PageComp;
 import com.revature.interfaces.DAO;
 import com.revature.util.SessionUtil;
 
+@Repository
 public class PageCompDAO implements DAO<PageComp> {
 	
 	private Session sess;
@@ -40,7 +42,7 @@ public class PageCompDAO implements DAO<PageComp> {
 	 * @param o = integer representing the page
 	 */
 	public List<PageComp> getByColumn(String colName, Object o) {
-		List<Object> oList = sess.createCriteria(Page.class).add(Restrictions.eq(colName, o)).list();
+		List<Object> oList = sess.createCriteria(PageComp.class).add(Restrictions.eq(colName, o)).list();
 		if (oList.size() == 0) {
 			System.out.println("nothing returned from list");
 			return null;
@@ -65,7 +67,7 @@ public class PageCompDAO implements DAO<PageComp> {
 
 	public List<PageComp> getAll() {
 		// TODO Auto-generated method stub
-		return null;
+		return sess.createCriteria(PageComp.class).list();
 	}
 
 }

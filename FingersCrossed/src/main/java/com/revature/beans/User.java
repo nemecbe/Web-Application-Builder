@@ -17,14 +17,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="users")
-@SecondaryTables({
+/*@SecondaryTables({
 	@SecondaryTable(name="user_credentials", pkJoinColumns= {
 			@PrimaryKeyJoinColumn(name="uc_id", referencedColumnName="u_id")}),
 	@SecondaryTable(name="user_payment_info", pkJoinColumns= {
 			@PrimaryKeyJoinColumn(name="upay_id", referencedColumnName="u_id")}),
 	@SecondaryTable(name="current_charge", pkJoinColumns= {
-			@PrimaryKeyJoinColumn(name="uchar_id", referencedColumnName="u_id")
-	})
+			@PrimaryKeyJoinColumn(name="uchar_id", referencedColumnName="u_id")			
+	})*/
+@SecondaryTables({
+	@SecondaryTable(name="user_credentials", pkJoinColumns= {
+			@PrimaryKeyJoinColumn(name="uc_id", referencedColumnName="u_id")})
 })
 public class User {
 
@@ -50,7 +53,7 @@ public class User {
 
 	@Column(table="users", name="experienced")
 	private boolean experienced;
-	
+	/*
 	@OneToMany
 	@JoinColumn(table="user_payment_info", name="ccinfo")
 	private Set<String> ccinfo;
@@ -60,14 +63,14 @@ public class User {
 	
 	@Column(table="current_charge", name="total_amount")
 	private Double totalCharge;
-
+*/
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(Integer id, String uName, String fName, String lName, String eMail, String pWord, boolean experienced,
-			Set<String> ccinfo, Integer pageCount, Double totalCharge) {
+	public User(Integer id, String uName, String fName, String lName, String eMail, String pWord, boolean experienced/*,
+			Set<String> ccinfo, Integer pageCount, Double totalCharge*/) {
 		super();
 		this.id = id;
 		this.uName = uName;
@@ -76,16 +79,16 @@ public class User {
 		this.eMail = eMail;
 		this.pWord = pWord;
 		this.experienced = experienced;
-		this.ccinfo = ccinfo;
-		this.pageCount = pageCount;
-		this.totalCharge = totalCharge;
+		//this.ccinfo = ccinfo;
+		//this.pageCount = pageCount;
+		//this.totalCharge = totalCharge;
 	}
 
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", uName=" + uName + ", fName=" + fName + ", lName=" + lName + ", eMail=" + eMail
-				+ ", pWord=" + pWord + ", experienced=" + experienced + ", ccinfo=" + ccinfo + ", pageCount="
-				+ pageCount + ", totalCharge=" + totalCharge + "]";
+				+ ", pWord=" + pWord + ", experienced=" + experienced// + ", ccinfo=" + ccinfo + ", pageCount="
+				/*+ pageCount + ", totalCharge=" + totalCharge + "]"*/;
 	}
 
 	@Override
@@ -149,7 +152,7 @@ public class User {
 	public void setExperienced(boolean experienced) {
 		this.experienced = experienced;
 	}
-
+/*
 	public Set<String> getCcinfo() {
 		return ccinfo;
 	}
@@ -173,5 +176,5 @@ public class User {
 	public void setTotalCharge(Double totalCharge) {
 		this.totalCharge = totalCharge;
 	}
-
+*/
 }

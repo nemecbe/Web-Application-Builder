@@ -2,6 +2,7 @@ package com.revature.services;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.revature.beans.Page;
@@ -12,11 +13,8 @@ import com.revature.interfaces.PageService;
 @Service
 public class PageServiceImpl implements PageService {
 
+	@Autowired
 	private DAO<Page> pDao;
-	
-	public PageServiceImpl() {
-		pDao = new PageDAO();
-	}
 	
 	public Page getPageById(Integer dcId) {
 		// TODO Auto-generated method stub

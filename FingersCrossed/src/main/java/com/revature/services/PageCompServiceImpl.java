@@ -32,7 +32,7 @@ public class PageCompServiceImpl implements PageCompService {
 
 	public List<PageComp> getAllCompForId(Integer puId) {
 		// TODO Auto-generated method stub
-		return (List<PageComp>)(List<?>)pageCompDao.getByColumn("page_id", puId);
+		return pageCompDao.getByColumn("pageId", puId);
 	}
 	
 	public void updatePageComp(PageComp comp) {

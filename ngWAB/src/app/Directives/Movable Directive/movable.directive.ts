@@ -22,7 +22,7 @@ export class MovableDirective extends DraggableDirective/* implements OnInit */{
 
    postition: Position = {x: 0, y: 0};
 
-  private startPosition: Position;
+  @Input() startPosition: Position = {x: 0, y: 0};
 
   @Input() resetPosition = false;
 
