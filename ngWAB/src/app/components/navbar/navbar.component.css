@@ -3,12 +3,23 @@ ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #2b362c;
+    white-space: nowrap;
+    display: inline-block;
+    background-color: black;
     width: 100%;
-    position: -webkit-sticky; /* Safari */
-    position: sticky;
+    position: fixed;/*-webkit-sticky; /* Safari */
+    /*position: sticky;*/
     top: 0;
     font-size: x-large;
+}
+
+ul li img {
+    width: 80%;
+    height: auto;
+}
+
+.teddyBear {
+    width: 700px;
 }
 
 li {
@@ -27,7 +38,7 @@ li a {
 
 /* Change the link color to #111 (black) on hover */
 li a:hover {
-    background-color: black;
+    background-color: grey;
 }
 
 .active {

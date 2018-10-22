@@ -33,7 +33,8 @@ private Session sess;
 
 	public void update(User u) {
 		// TODO Auto-generated method stub
-		sess.saveOrUpdate(u);
+		System.out.println("updating");
+		sess.merge(u);
 	}
 
 	public void delete(User u) {

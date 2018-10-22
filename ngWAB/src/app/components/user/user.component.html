@@ -1,9 +1,7 @@
-<br>
-<app-navbar></app-navbar>
-<br>
-<br>
 <div *ngIf="user">
-  <h1>First name: {{user.fName}}</h1>
-  <h2>Last name: {{user.lName}}</h2>
+  <h1>Welcome {{user.fName}}!</h1>
+  <img *ngIf="user.fName.includes('ason')" src="https://ca.slack-edge.com/TCDN3HF97-UCHCJ5YKY-d27d70f34394-48" />
+  <img *ngIf="user.fName.includes('en')" src="http://athletics.uwplatt.edu/sports/xc/2017-18/photos/0001/B23Y1341.jpg?max_width=160&max_height=210">
+  <!--<h2>Last name: {{user.lName}}</h2>-->
 </div>
-<button type="button" class="btn btn-secondary" (click)="getPages();">View Page</button>
+<!--<button type="button" class="btn btn-secondary" (click)="getPages();">View Page</button>-->

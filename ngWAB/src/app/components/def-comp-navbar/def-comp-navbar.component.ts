@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { IndividualPageComponent } from '../individual-page/individual-page.component';
+import { PageComp } from 'src/app/types/pageComps';
+import { Button } from 'protractor';
 
 @Component({
   selector: 'app-def-comp-navbar',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DefCompNavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ip: IndividualPageComponent) { }
 
   ngOnInit() {
+  }
+
+  addButton() {
+    this.ip.comps.push({
+      pcId: this.ip.comps.length + 1,
+      compDetails: 'New Button',
+      compId: { compName: 'button', compType: 'button', id: 1},
+      pageId: 1,
+      parentId: 0,
+      styleId: 0,
+      xPos: 0,
+      yPos: 0
+    });
   }
 
 }

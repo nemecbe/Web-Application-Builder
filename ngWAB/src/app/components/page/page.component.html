@@ -1,7 +1,9 @@
-<br>
-<app-navbar></app-navbar>
-<br>
-<br>
-<div *ngFor="let page of pages">
-  <button (click)="getComps(page)">{{page.pName}}</button>
-</div>
+<h1>Pages:</h1>
+<ul>
+  <li *ngFor="let page of pages | search : input" (click)="getComps(page)">
+    <h1>{{page.pName}}</h1>
+  </li>
+  <li>
+    <button (click)="addPage()">Add</button> <input type="text" [(ngModel)]="pageNaeme" />
+  </li>
+</ul>

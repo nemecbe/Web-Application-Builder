@@ -18,6 +18,9 @@ import { IndividualPageComponent } from './components/individual-page/individual
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { DefCompNavbarComponent } from './components/def-comp-navbar/def-comp-navbar.component';
 import { ExPage1Component } from './components/ex-page1/ex-page1.component';
+import { SearchComponent } from './components/search/search.component';
+import { SearchPipe } from './Pipes/search.pipe';
+import { EditComponent } from './components/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +35,10 @@ import { ExPage1Component } from './components/ex-page1/ex-page1.component';
     IndividualPageComponent,
     NavbarComponent,
     DefCompNavbarComponent,
-    ExPage1Component
+    ExPage1Component,
+    SearchComponent,
+    SearchPipe,
+    EditComponent
   ],
   imports: [
     FormsModule,

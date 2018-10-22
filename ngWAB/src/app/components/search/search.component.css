@@ -1,0 +1,11 @@
+div ul li {
+    cursor: pointer;
+}
+
+div ul li:hover {
+    color: blue;
+}
+
+div input {
+    width: 75%;
+}

@@ -25,6 +25,11 @@ export class PageService {
     return this.http.get<Page[]>(this.url +  user.uName + '/page', httpOptions);
   }
 
+  createPage(page: Page): Observable<Page> {
+    this.currPages.push(page);
+    return this.http.post<Page>(this.url +  this.currUser.uName + '/page', page, httpOptions);
+  }
+
   setPages(pages: Page[]) {
     this.currPages = pages;
   }

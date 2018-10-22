@@ -1,15 +1,33 @@
-.topnav a {
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    background-color: #2b362c;
+    width: 100%;
+    position: fixed;/*-webkit-sticky; /* Safari */
+    /*position: sticky;*/
+    bottom: 0;
+    font-size: x-large;
+}
+
+li {
     float: left;
-    /*color: #f2f2f2;*/
-    color: black;
     text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 25px;
 }
 
-.topnav a.active {
-    background-color: rgba(173, 216, 230, 0.452);
+li a {
+    display: block;
     color: white;
+    text-align: center;
+    padding: 10px 16px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
+/* Change the link color to #111 (black) on hover */
+li a:hover {
+    background-color: black;
+}

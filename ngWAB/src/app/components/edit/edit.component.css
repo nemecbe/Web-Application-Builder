@@ -1,4 +1,8 @@
-button {
+div {
+    text-align: center;
+}
+
+.submit {
     background-color: #6A5ACD;
     border: none;
     color: white;
@@ -9,8 +13,18 @@ button {
     font-size: 16px;
 }
 
-button:hover {
-    cursor: pointer;
-    background-color: rgb(124, 114, 190);
+.submit:hover {
+    background-color: #008080; 
     box-shadow: 0 12px 16px 0 rgba(252, 252, 252, 0.24), 0 17px 50px 0 rgba(255, 255, 255, 0.19);
+    cursor: pointer;
+}
+
+div input {
+    border: 2px solid black;
+    border-radius: 4px;
+    text-align: center;
+}
+
+div input:focus {
+    background-color: lightblue;
 }

@@ -3,7 +3,7 @@ import { Page } from 'src/app/types/page';
 import { PageService } from 'src/app/services/page.service';
 import { CompService } from 'src/app/services/comp.service';
 import { Comp } from 'src/app/types/comp';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
 import { PageComp } from '../../types/pageComps';
 
@@ -19,11 +19,13 @@ export class PageComponent implements OnInit {
   currPage: Page;
   pageHtml: string;
   sh: SafeHtml;
+  pageName = '';
 
   constructor(private ps: PageService,
               private cs: CompService,
               private router: Router,
-              private sanitizer: DomSanitizer) {
+              private sanitizer: DomSanitizer,
+              private route: ActivatedRoute) {
     this.pageHtml = '';
   }
 
@@ -46,6 +48,15 @@ export class PageComponent implements OnInit {
     // this.sh = this.sanitizer.bypassSecurityTrustHtml(this.pageHtml);
 
     // this.pages.
+  }
+
+  addPage() {
+    /*this.ps.createPage({
+      pId: 0,
+      active: true,
+      pName: this.pageName,
+      puId: this.ps.currUser.id
+    }).subscribe(data => this.pages.push(data));*/
   }
 
 }

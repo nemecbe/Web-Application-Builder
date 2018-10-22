@@ -1,0 +1,11 @@
+<div>
+  <br>
+  <br>
+  <input type="text" placeholder="Search For Page Here" [(ngModel)]="input"/>
+  <br>
+  <ul>
+    <li *ngFor="let page of pages | search : input" (click)="goToPage(page)">
+      <h1>{{page.pName}}</h1>
+    </li>
+  </ul>
+</div>

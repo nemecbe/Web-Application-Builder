@@ -37,25 +37,27 @@ public class UserController {
 	public List<Page> getPage(@PathVariable String uName) {
 		User u = uServ.getByName(uName);
 		Integer puId = 0;
-		if (u != null && uName.equals(u.getuName())) {
+		//if (u != null && uName.equals(u.getuName())) {
 			puId = u.getId();
-		}
+		//}
 		List<Page> pList = pServ.getAllPagesForId(puId);
 		return pList;
 	}
 	
 	@PostMapping(value="/user/{uname}/page")
-	public void createPage(@PathVariable(name="uname") String uname,
+	public Page createPage(@PathVariable(name="uname") String uname,
 			@RequestBody Page page) {
 		User u = uServ.getCurrentUser();
-		if(u != null && u.getuName().equals(uname))
+		//if(u != null && u.getuName().equals(uname))
 			page.setPuId(u.getId());
 		pServ.createPage(page);
+		return page;
 	}
 	
 	@PutMapping(value="/user/{uname}")
 	public void updateInfo(@RequestBody User user) {
-		if(uServ.getCurrentUser() != null && uServ.getCurrentUser().equals(user))
-			uServ.updateUser(user);
+		//if(uServ.getCurrentUser() != null && uServ.getCurrentUser().equals(user))
+		System.out.println(user);
+		uServ.updateUser(user);
 	}
 }

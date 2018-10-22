@@ -1,0 +1,18 @@
+<div>
+  <h1>Personal Info for {{user.uName}}:</h1>
+  <div>
+    First Name: <input [(ngModel)]="user.fName" type="text" />
+    <br>
+    <br>
+    Last Name: <input [(ngModel)]="user.lName" type="text" />
+    <br>
+    <br>
+    Password: <input [(ngModel)]="user.pWord" type="password" />
+    <br>
+    <br>
+    Email: <input [(ngModel)]="user.eMail" type="email" />
+    <br>
+    <br>
+    <input class="submit" type="submit" (click)="update()" />
+  </div>
+</div>

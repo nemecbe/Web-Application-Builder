@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, AfterViewInit } from '@angular/core';
 import { Comp } from 'src/app/types/comp';
 import { PageComp } from '../../types/pageComps';
 
@@ -7,7 +7,7 @@ import { PageComp } from '../../types/pageComps';
   templateUrl: './comp.component.html',
   styleUrls: ['./comp.component.css']
 })
-export class CompComponent implements OnInit {
+export class CompComponent implements OnInit, AfterViewInit {
 
   comps: string[];
   @Input() pageComp: PageComp;
@@ -16,6 +16,11 @@ export class CompComponent implements OnInit {
 
   ngOnInit() {
     // this.comp = 'button';
+  }
+
+  ngAfterViewInit() {
+    console.log('in compComponent');
+    console.log(this.pageComp);
   }
 
 }

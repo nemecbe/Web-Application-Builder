@@ -16,6 +16,8 @@ export class LoginServiceService {
   currentUser: User;
   readonly url = 'http://localhost:8080/FingersCrossed/login';
 
+  readonly updateUrl = 'http://localhost:8080/FingersCrossed/user/';
+
   constructor(private http: HttpClient) { }
 
   getUser(user: User): Observable<User> {
@@ -28,5 +30,10 @@ export class LoginServiceService {
 
   getCurrentUser(): User {
     return this.currentUser;
+  }
+
+  updateUser(user: User) {
+    this.currentUser = user;
+    this.http.put<User>(this.updateUrl + user.uName, user, httpOptions).subscribe();
   }
 }
